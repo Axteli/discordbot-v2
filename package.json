@@ -1,0 +1,23 @@
+{
+  "name": "discordbot-v2",
+  "version": "1.0.0",
+  "description": "rewrite of Axteli/discordbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Axteli/discordbot-v2.git"
+  },
+  "author": "Axteli",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Axteli/discordbot-v2/issues"
+  },
+  "homepage": "https://github.com/Axteli/discordbot-v2#readme",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "discord.js": "^13.6.0"
+  }
+}
