@@ -3,6 +3,9 @@ const intents = Discord.Intents;
 const client = new Discord.Client({intents: [intents.FLAGS.GUILDS, intents.FLAGS.GUILD_MESSAGES]});
 const config = require("./config.json");
 const fs = require("fs")
+const logging = require("logging")
+const logger = logging.default('DiscordBot');
+
 
 const { loadCommands } = require("./handlers/loadCommands.js");
 const { loadEvents } = require("./handlers/loadEvents.js");
@@ -18,8 +21,8 @@ client.categories = fs.readdirSync('./commands/');
 
 
 //execute handlers
-loadCommands(client);
-loadEvents(client);
+loadCommands(client, logger);
+loadEvents(client, logger);
 
 
 //login
