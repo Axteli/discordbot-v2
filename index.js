@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const intents = Discord.Intents;
 const client = new Discord.Client({intents: [intents.FLAGS.GUILDS, intents.FLAGS.GUILD_MESSAGES]});
 const config = require("./config.json");
+const fs = require("fs")
 
 const loadCommands = require("./handlers/loadCommands.js");
 const loadEvents = require("./handlers/loadEvents.js");
