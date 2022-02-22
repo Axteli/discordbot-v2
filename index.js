@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const intents = Discord.Intents;
 const client = new Discord.Client({intents: [intents.FLAGS.GUILDS, intents.FLAGS.GUILD_MESSAGES]});
 const config = require("./config.json");
-const fs = require("fs")
-const logging = require("logging")
+const fs = require("fs");
+const logging = require("logging");
 const logger = logging.default('DiscordBot');
 
 
