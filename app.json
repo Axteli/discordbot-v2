@@ -1,0 +1,19 @@
+{
+    "name": "Discordbot-v2",
+    "repository": "https://github.com/Axteli/discordbot-v2",
+    "buildpacks": [
+      {
+        "url": "heroku/nodejs"
+      }
+    ],
+    "env": {
+      "DEFAULT_PREFIX": {
+        "description": "The Discord Bot Prefix",
+        "value":"!"
+      },
+      "DISCORD_TOKEN": {
+        "description": "The Discord Bot Token (https://discord.com/developers/applications)",
+        "required": "true"
+      }
+  }
+}

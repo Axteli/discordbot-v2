@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 const intents = Discord.Intents;
 const client = new Discord.Client({intents: [intents.FLAGS.GUILDS, intents.FLAGS.GUILD_MESSAGES]});
-const config = require("./config.json");
 const fs = require("fs");
 const logging = require("logging");
 const logger = logging.default('DiscordBot');
+require("dotenv").config();
 
 
 const { loadCommands } = require("./handlers/loadCommands.js");
@@ -26,4 +26,4 @@ loadEvents(client, logger);
 
 
 //login
-client.login(config.token);
+client.login(process.env.DISCORD_TOKEN);
