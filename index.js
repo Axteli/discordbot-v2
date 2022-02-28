@@ -2,8 +2,6 @@ const Discord = require("discord.js");
 const intents = Discord.Intents;
 const client = new Discord.Client({intents: [intents.FLAGS.GUILDS, intents.FLAGS.GUILD_MESSAGES]});
 const fs = require("fs");
-const logging = require("logging");
-const logger = logging.default('DiscordBot');
 require("dotenv").config();
 
 
@@ -21,8 +19,8 @@ client.categories = fs.readdirSync('./commands/');
 
 
 //execute handlers
-loadCommands(client, logger);
-loadEvents(client, logger);
+loadCommands(client);
+loadEvents(client);
 
 
 //login
