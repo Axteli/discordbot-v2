@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/Axteli/discordbot-v2#readme",
   "dependencies": {
-    "chalk": "^5.0.0",
+    "chalk": "^4.1.2",
     "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "ghom-djs-docs": "^2.0.1",
+    "moment": "^2.29.1"
   }
 }
