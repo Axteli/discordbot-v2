@@ -6,7 +6,7 @@ const { loadEvents } = require("./handlers/loadEvents.js");
 
 
 //execute handlers
-loadCommands(client);
+
 loadEvents(client);
 
 
