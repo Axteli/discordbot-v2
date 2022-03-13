@@ -1,11 +1,21 @@
-const eventClient = (event) => require(`../events/client/${event}`);
+const { readdirSync } = require("fs");
 
-function loadEvents(client) {
+async function loadEvents(client) {
 
-    //client event
-    client.on("ready", () => eventClient("ready.js")(client));
+	readdirSync("./events/").forEach(category => {
 
-}
+		readdirSync(`./events/${category}`).forEach(eventFile => {
+
+			const event = require(`../events/${category}/${eventFile}`);
+			client.on(event.name, (...args) => event.run(client, ...args));
+			client.log.info("event", "event " + event.name + " loaded!");
+
+		});
+
+	});
+
+
+};
 module.exports = {
-    loadEvents
+	loadEvents
 };
