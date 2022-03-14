@@ -6,8 +6,8 @@ const sourceColor = {
 
 	command: "cyan",
 	event: "green",
-	ready: "bgGreen",
 	main: "white",
+	button: "magenta"
 
 };
 
@@ -15,6 +15,14 @@ function logger(color, source, level, content) {
 
 	const date = moment(Date.now()).format("DD/MM - HH:mm:ss:SS");
 	const Color = sourceColor[source];
+
+	if(!chalk[Color]) {
+
+		console.log(chalk.grey(`[${date}] `) + `[main/WARN]` + " " + chalk.yellow(`The function client.log.${level} was called with the source ${source}, but it dosen't exist!`));
+		return;
+
+	}
+
 	console.log(chalk.grey(`[${date}] `) + chalk[Color](`[${source}/${level}]`) + " " + chalk[color](content));
 
 }
