@@ -1,4 +1,3 @@
-const { loadCommands } = require("../../handlers/loadCommands")
 const { loadCommands } = require("../../handlers/loadCommands");
 const { loadButtons } = require("../../handlers/loadButtons");
 module.exports = {
