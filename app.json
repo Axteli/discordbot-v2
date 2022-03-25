@@ -14,6 +14,14 @@
       "DISCORD_TOKEN": {
         "description": "The Discord Bot Token (https://discord.com/developers/applications)",
         "required": "true"
+      },
+        "SUPPORT_SERVER": {
+          "description": "The main server of the bot.",
+          "required":"true"
+      },
+      "EMBED_COLOR": {
+        "description":"The color of all embeds of the bot.",
+        "value":"36393F"
       }
   }
 }
