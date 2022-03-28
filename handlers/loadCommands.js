@@ -1,6 +1,6 @@
 const { readdirSync } = require("fs");
 
-async function loadCommands(client) {
+function loadCommands(client) {
 
 
     //set the commands discord collection
@@ -8,8 +8,16 @@ async function loadCommands(client) {
 
         readdirSync(`./commands/${category}`).forEach(commandFile => {
 
-            const command = require(`../commands/${category}/${commandFile}`)
-            client.commands.set(command.name, command)
+
+            const command = require(`../commands/${category}/${commandFile}`);
+
+            if (!command.name || !command.description) {
+                client.log.warn("command", commandFile + " | ❌ Missing name or description");
+            }
+
+            client.commands.set(command.name, command);
+            client.log.info("command", commandFile + " | ✅");
+
 
         })
 
@@ -19,16 +27,17 @@ async function loadCommands(client) {
 
         if (guild) {
 
-            client.log.info("command", `The support server is: ${guild.name}. Starting refreshing slash commands...`)
+            client.log.info("command", `The support server is: ${guild.name}. Starting refreshing slash commands...`);
+
             guild.commands.set(client.commands.map(cmd => cmd)).then(
                 client.log.info("command", `Slash commands set on ${guild.name}!`)
-            )
+            );
 
         } else {
 
-            client.log.error("command", "Unable to find support server. Slash commands can't load correctly!")
+            client.log.error("command", "Unable to find support server. Slash commands can't load correctly!");
 
-        }
+        };
 
 
     })

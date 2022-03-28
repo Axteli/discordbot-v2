@@ -1,14 +1,22 @@
 const { readdirSync } = require("fs");
 
-async function loadEvents(client) {
+function loadEvents(client) {
 
 	readdirSync("./events/").forEach(category => {
 
 		readdirSync(`./events/${category}`).forEach(eventFile => {
 
 			const event = require(`../events/${category}/${eventFile}`);
-			client.on(event.name, (...args) => event.run(client, ...args));
-			client.log.info("event", "event " + event.name + " loaded!");
+			if (event.name) {
+
+				client.on(event.name, (...args) => event.run(client, ...args));
+				client.log.info("event", eventFile + " | ✅");
+
+			} else {
+
+				client.log.warn("event", eventFile + " | ❌ Missing event name");
+
+			};
 
 		});
 

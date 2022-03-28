@@ -6,7 +6,13 @@ function loadButtons(client) {
 		readdirSync(`./buttons/${category}/`).forEach(buttonFile => {
 
 			const button = require(`../buttons/${category}/${buttonFile}`);
+
+			if (!button.name) {
+				client.log.warn("button", buttonFile + " | ❌ Missing button name");
+			}
+
 			client.buttons.set(button.name, button);
+			client.log.info("button", buttonFile + " | ✅");
 
 		})
 
