@@ -4,9 +4,13 @@ require("dotenv").config();
 const { loadEvents } = require("./handlers/loadEvents.js");
 
 
-//execute handlers
-
+//load events
 loadEvents(client);
+loadButtons(client)
+
+
+//login to discord
+client.login(process.env.DISCORD_TOKEN);
 
 
 //login

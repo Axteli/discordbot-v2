@@ -1,5 +1,4 @@
 const { loadCommands } = require("../../handlers/loadCommands");
-const { loadButtons } = require("../../handlers/loadButtons");
 module.exports = {
 	name: 'ready',
 	async run(client) {
@@ -9,6 +8,5 @@ module.exports = {
 
 
 		loadCommands(client);
-		loadButtons(client);
 	}
 };
