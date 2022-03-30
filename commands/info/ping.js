@@ -33,6 +33,5 @@ module.exports = {
 
 
 		interaction.editReply({ embeds: [embed], components: [buttons] })
-		interaction.reply("yo")
 	}
 };
