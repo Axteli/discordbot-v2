@@ -3,8 +3,10 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 module.exports = {
 	name: "ping",
 	description: "Display the bot's ping.",
-	botPermissions: "",
+	botPermissions: [],
 	userPermissions: [],
+	ownerOnly: false,
+	premiumOnly: false,
 	async run(client, interaction) {
 
 
@@ -30,6 +32,7 @@ module.exports = {
 			);
 
 
-		interaction.editReply({ embeds: [embed], components: [buttons] });
+		interaction.editReply({ embeds: [embed], components: [buttons] })
+		interaction.reply("yo")
 	}
 };
