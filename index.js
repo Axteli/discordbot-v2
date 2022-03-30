@@ -16,7 +16,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 //log errors
 process.on("unhandledRejection", (reason, promise) => {
-	client.log.error("main", `Unhandled Rejection at: ${reason}\n${promise}`);
+	client.log.error("main", `Unhandled Rejection at: ${reason}\n${JSON.stringify(promise)}`);
 });
 
 process.on('uncaughtException', (err, origin) => {
