@@ -1,4 +1,3 @@
-const DiscordBot = require("./helpers/Client.js")
 const DiscordBot = require("./structure/Client.js");
 const client = new DiscordBot();
 const mongoose = require("mongoose");

@@ -20,7 +20,7 @@ userSchema.methods.isPremium = async function () {
 
 	if (this.premium.active) {
 
-		if (this.premium.expiresAt > Date.now()) {
+		if (this.premium.expiresAt > Date.now() / 1000) {
 			return true;
 		} else {
 
