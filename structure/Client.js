@@ -19,15 +19,15 @@ class DiscordBot extends Client {
 		//create all collections for commands
 		this.commands = new Collection();
 		this.description = new Collection();
-		this.categories = readdirSync('./commands/');
+		this.categories = readdirSync("./commands/");
 
 		this.buttons = new Collection();
 
 
-		this.log = require("./logger.js");
+		this.log = require("../helpers/logger.js");
 
 
-	};
+	}
 
 
 }

@@ -1,4 +1,5 @@
 const DiscordBot = require("./helpers/Client.js")
+const DiscordBot = require("./structure/Client.js");
 const client = new DiscordBot();
 require("dotenv").config();
 const { loadEvents } = require("./handlers/loadEvents.js");
