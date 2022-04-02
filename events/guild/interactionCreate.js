@@ -1,6 +1,7 @@
+const schema = require("../../structure/User.js");
 module.exports = {
 	name: "interactionCreate",
-	run(client, interaction) {
+	async run(client, interaction) {
 
 
 		if (interaction.isCommand()) {
@@ -8,6 +9,19 @@ module.exports = {
 
 
 			const command = client.commands.get(interaction.commandName);
+
+
+			// This is creating a new user if the user is not in the database
+			var userData = await schema.findOne({ id: interaction.member.id });
+
+			if(!userData) var userData = await schema.create({id: interaction.member.id})
+			
+
+			const isPremium = await userData.isPremium()
+
+			if(command.premiumOnly && !isPremium) {
+				return interaction.reply("You need to be premium!");
+			}
 
 
 			//check if the command is restricted to owner
