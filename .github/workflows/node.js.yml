@@ -24,4 +24,6 @@ jobs:
         check-latest: true
         cache: 'npm'
     - name: Run eslint
-      run: eslint . --ext .js
+      run: |
+        npm install --global eslint
+        eslint . --ext .js
