@@ -23,5 +23,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         check-latest: true
         cache: 'npm'
-    - name: Run ESLint
-      uses: stefanoeb/eslint-action@1.0.2
+    - run: npm install
+    - run: npm run lint
