@@ -8,7 +8,7 @@ const { loadButtons } = require("./handlers/loadButtons.js");
 
 //load events
 loadEvents(client);
-loadButtons(client)
+loadButtons(client);
 
 
 //login to discord
@@ -28,7 +28,7 @@ process.on("unhandledRejection", (reason, promise) => {
 	client.log.error("main", `Unhandled Rejection at: ${reason}\n${JSON.stringify(promise)}`);
 });
 
-process.on('uncaughtException', (err, origin) => {
+process.on("uncaughtException", (err, origin) => {
 
 	client.log.error("main", `Caught exception: ${err} \nException origin: ${origin}`);
 
