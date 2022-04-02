@@ -1,0 +1,8 @@
+{
+	// List of extensions which should be recommended for users of this workspace.
+	"recommendations": [
+		"irongeek.vscode-env",
+		"mintlify.document"
+		
+	]
+}

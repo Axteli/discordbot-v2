@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"node_modules/": true,
+		"package-lock.json": true,
+		"Procfile": true,
+		".vscode/":true
+	},
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+}
