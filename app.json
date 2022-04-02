@@ -22,6 +22,10 @@
       "EMBED_COLOR": {
         "description":"The color of all embeds of the bot.",
         "value":"36393F"
+      },
+      "MONGO_DB": {
+        "description": "The link to the mongDB database.",
+        "required":"true"
       }
   }
 }
