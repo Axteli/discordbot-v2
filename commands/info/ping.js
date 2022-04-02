@@ -32,6 +32,6 @@ module.exports = {
 			);
 
 
-		interaction.editReply({ embeds: [embed], components: [buttons] })
+		interaction.editReply({ embeds: [embed], components: [buttons] });
 	}
 };

@@ -1,6 +1,6 @@
 const { loadCommands } = require("../../handlers/loadCommands");
 module.exports = {
-	name: 'ready',
+	name: "ready",
 	async run(client) {
 
 

@@ -16,14 +16,14 @@ function loadEvents(client) {
 
 				client.log.warn("event", eventFile + " | ❌ Missing event name");
 
-			};
+			}
 
 		});
 
 	});
 
 
-};
+}
 module.exports = {
 	loadEvents
 };

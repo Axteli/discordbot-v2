@@ -18,7 +18,7 @@ function logger(color, source, level, content) {
 
 	if(!chalk[Color]) {
 
-		console.log(chalk.grey(`[${date}] `) + `[main/WARN]` + " " + chalk.yellow(`The function client.log.${level} was called with the source ${source}, but it dosen't exist!`));
+		console.log(chalk.grey(`[${date}] `) + "[main/WARN]" + " " + chalk.yellow(`The function client.log.${level} was called with the source ${source}, but it dosen't exist!`));
 		return;
 
 	}

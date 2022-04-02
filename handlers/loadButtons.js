@@ -14,11 +14,11 @@ function loadButtons(client) {
 			client.buttons.set(button.name, button);
 			client.log.info("button", buttonFile + " | ✅");
 
-		})
+		});
 
 	});
 
 }
 module.exports = {
 	loadButtons
-}
+};
