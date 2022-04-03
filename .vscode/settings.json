@@ -3,7 +3,10 @@
 		"node_modules/": true,
 		"package-lock.json": true,
 		"Procfile": true,
-		".vscode/":true
+		".vscode/": true,
+		".github/": true,
+		".eslintrc.json": true
+		
 	},
 	"editor.tabSize": 4,
 	"editor.insertSpaces": false,
