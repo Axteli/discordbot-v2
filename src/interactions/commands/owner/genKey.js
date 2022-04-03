@@ -1,4 +1,4 @@
-const schema = require("../../structure/PremiumKey.js");
+const schema = require("../../../structure/PremiumKey.js");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {

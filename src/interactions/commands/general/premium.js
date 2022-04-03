@@ -1,5 +1,5 @@
-const keySchema = require("../../structure/PremiumKey.js");
-const userSchema = require("../../structure/User.js");
+const keySchema = require("../../../structure/PremiumKey.js");
+const userSchema = require("../../../structure/User.js");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {

@@ -6,10 +6,10 @@ function loadCommands(client) {
 	//set the commands discord collection
 	client.categories.forEach(category => {
 
-		readdirSync(`./commands/${category}`).forEach(commandFile => {
+		readdirSync(`./src/interactions/commands/${category}`).forEach(commandFile => {
 
 
-			const command = require(`../commands/${category}/${commandFile}`);
+			const command = require(`../interactions/commands/${category}/${commandFile}`);
 
 			if (!command.name || !command.description) {
 				client.log.warn("command", commandFile + " | ❌ Missing name or description");

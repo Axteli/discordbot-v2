@@ -2,9 +2,9 @@ const { readdirSync } = require("fs");
 
 function loadEvents(client) {
 
-	readdirSync("./events/").forEach(category => {
+	readdirSync("./src/events/").forEach(category => {
 
-		readdirSync(`./events/${category}`).forEach(eventFile => {
+		readdirSync(`./src/events/${category}`).forEach(eventFile => {
 
 			const event = require(`../events/${category}/${eventFile}`);
 			if (event.name) {

@@ -1,11 +1,11 @@
 const { readdirSync } = require("fs");
 function loadButtons(client) {
 
-	readdirSync("./buttons/").forEach(category => {
+	readdirSync("./src/interactions/buttons/").forEach(category => {
 
-		readdirSync(`./buttons/${category}/`).forEach(buttonFile => {
+		readdirSync(`./src/interactions/buttons/${category}/`).forEach(buttonFile => {
 
-			const button = require(`../buttons/${category}/${buttonFile}`);
+			const button = require(`../interactions/buttons/${category}/${buttonFile}`);
 
 			if (!button.name) {
 				client.log.warn("button", buttonFile + " | ❌ Missing button name");

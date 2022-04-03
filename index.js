@@ -1,35 +1,45 @@
-const DiscordBot = require("./structure/Client.js");
-const client = new DiscordBot();
-const mongoose = require("mongoose");
-require("dotenv").config();
-const { loadEvents } = require("./handlers/loadEvents.js");
-const { loadButtons } = require("./handlers/loadButtons.js");
+const { grey } = require("chalk");
+const moment = require("moment");
+var spawn = require("child_process").spawn;
 
 
-//load events
-loadEvents(client);
-loadButtons(client);
+console.clear();
+start();
 
 
-//login to discord
-client.login(process.env.DISCORD_TOKEN);
+async function start() {
 
 
-
-//login to the mongoDB database
-mongoose.connect(process.env.MONGO_DB).then(
-	client.log.info("main", "Connected to mongoDB!")
-);
+	console.log("DiscordBot v2 - Made by Axteli - Github Repo: https://github.com/Axteli/discordbot-v2 - Licence : GPL-V3\n\n");
+	const date = moment(Date.now()).format("DD/MM - HH:mm:ss:SS");
+	console.log(grey(`[${date}] `) + "[child/INFO] launching child process...");
 
 
+	const proc = spawn("node", ["./src/bot.js"], { stdio: "inherit" });
 
-//log errors
-process.on("unhandledRejection", (reason, promise) => {
-	client.log.error("main", `Unhandled Rejection at: ${reason}\n${JSON.stringify(promise)}`);
-});
 
-process.on("uncaughtException", (err, origin) => {
+	proc.on("exit", function (code) {
 
-	client.log.error("main", `Caught exception: ${err} \nException origin: ${origin}`);
+		console.log("Process has exited. Code: " + code);
+		switch (code) {
 
-});
+			case 14:
+				console.log("This is an intentional stop.");
+				break;
+
+			case 15:
+				console.log("This is an intentional restart.");
+				console.log("Restarting process in 5 sec...");
+				setTimeout(start, 5000);
+				break;
+
+			default:
+				console.log("Restarting process in 5 sec...");
+				setTimeout(start, 5000);
+
+		}
+
+	});
+
+
+}

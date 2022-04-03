@@ -4,7 +4,7 @@
   "description": "rewrite of Axteli/discordbot",
   "main": "index.js",
   "scripts": {
-    "start": "node start.js",
+    "start": "node index.js",
     "lint": "npx eslint . --ext .js"
   },
   "repository": {
