@@ -55,6 +55,9 @@ module.exports = {
 			const button = client.buttons.get(interaction.customId);
 			button.run(client, interaction);
 
+		} else if (interaction.isSelectMenu()) {
+			const selectMenu = client.selectMenus.get(interaction.customId);
+			selectMenu.run(client, interaction);
 		}
 
 

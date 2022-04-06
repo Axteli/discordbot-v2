@@ -7,7 +7,8 @@ const sourceColor = {
 	command: "cyan",
 	event: "green",
 	main: "white",
-	button: "magenta"
+	button: "magenta",
+	selectMenu: "blue"
 
 };
 

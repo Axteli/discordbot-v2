@@ -4,11 +4,13 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const { loadEvents } = require("./handlers/loadEvents.js");
 const { loadButtons } = require("./handlers/loadButtons.js");
+const { loadSelectMenus } = require("./handlers/loadSelectMenus.js");
 
 
 //load events
 loadEvents(client);
 loadButtons(client);
+loadSelectMenus(client);
 
 
 //login to discord

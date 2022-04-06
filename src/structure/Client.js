@@ -22,6 +22,7 @@ class DiscordBot extends Client {
 		this.categories = readdirSync("./src/interactions/commands/");
 
 		this.buttons = new Collection();
+		this.selectMenus = new Collection();
 
 
 		this.log = require("../utils/logger.js");
