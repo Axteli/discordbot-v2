@@ -15,6 +15,8 @@ function loadCommands(client) {
 				client.log.warn("command", commandFile + " | ❌ Missing name or description");
 			}
 
+			command.defaultPermission = command.ownerOnly ? false : true;
+
 			client.commands.set(command.name, command);
 			client.log.info("command", commandFile + " | ✅");
 
@@ -27,11 +29,33 @@ function loadCommands(client) {
 
 		if (guild) {
 
-			client.log.info("command", `The support server is: ${guild.name}. Starting refreshing slash commands...`);
+			client.log.info("command", `The support server is: ${guild.name}. Starting refreshing ${client.commands.size} slash commands...`);
 
-			guild.commands.set(client.commands.map(cmd => cmd)).then(
-				client.log.info("command", `Slash commands set on ${guild.name}!`)
-			);
+			guild.commands.set(client.commands.map(cmd => cmd)).then((cmd) => {
+				client.log.info("command", `Slash commands set on ${guild.name}!`);
+
+				cmd.forEach(command => {
+
+					const localCommand = client.commands.get(command.name);
+					if (localCommand.ownerOnly) {
+
+						client.application.commands.permissions.set({
+							guild: guild.id, command: command.id,
+							permissions: [
+								{
+									id: process.env.OWNER_ID,
+									type: "USER",
+									permission: true,
+								},
+							]
+						});
+
+					}
+
+				});
+
+			});
+
 
 		} else {
 
